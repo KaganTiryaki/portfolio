@@ -4,16 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kağan Tiryaki — Geliştirici</title>
-<meta name="description" content="15 yaşında bir geliştirici. Yapay zekâ, web ve aklına eseni kodlar.">
+<meta name="description" content="Web sitesi, yapay zekâ ve otomasyon geliştiren bir yazılımcı. Fikrinizi alır, çalışan bir ürüne dönüştürürüm.">
 <meta name="author" content="Kağan Tiryaki">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Kağan Tiryaki — Geliştirici">
-<meta property="og:description" content="Web siteleri, yapay zekâ ve otomasyon. Fikri alır, çalışan bir şeye çeviririm.">
+<meta property="og:description" content="Web sitesi, yapay zekâ ve otomasyon. Fikrinizi alır, çalışan bir ürüne dönüştürürüm.">
 <meta property="og:url" content="https://portfolio-ashy-chi-54.vercel.app/">
 <meta property="og:image" content="https://portfolio-ashy-chi-54.vercel.app/assets/bg.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Kağan Tiryaki — Geliştirici">
-<meta name="twitter:description" content="Web siteleri, yapay zekâ ve otomasyon. Fikri alır, çalışan bir şeye çeviririm.">
+<meta name="twitter:description" content="Web sitesi, yapay zekâ ve otomasyon. Fikrinizi alır, çalışan bir ürüne dönüştürürüm.">
 <meta name="twitter:image" content="https://portfolio-ashy-chi-54.vercel.app/assets/bg.png">
 <link rel="canonical" href="https://portfolio-ashy-chi-54.vercel.app/">
 <!-- Not: özel alan adı eklersen yukarıdaki og:url, og:image, twitter:image ve canonical'ı yeni adrese güncelle -->
@@ -34,6 +34,7 @@
   --lime:#c4f042;
   --teal:#5fe6d0;
   --violet:#a594ff;
+  --accent:#5fe6d0;
   --irid:linear-gradient(110deg,#c4f042,#5fe6d0,#a594ff);
   --disp:'Bricolage Grotesque',sans-serif;
   --body:'Familjen Grotesk',sans-serif;
@@ -43,7 +44,7 @@
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{background:var(--bg);color:var(--text)}
 body{font-family:var(--body);line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-::selection{background:var(--lime);color:#000}
+::selection{background:var(--accent);color:#000}
 a{color:inherit;text-decoration:none}
 .js body{cursor:none}
 @media(pointer:coarse){.js body{cursor:auto}}
@@ -98,6 +99,18 @@ nav .n-right a:hover::after{width:100%}
 /* ---- scroll progress ---- */
 .prog{position:fixed;top:0;left:0;height:2px;width:0;background:var(--irid);z-index:200}
 
+/* ---- scroll HUD (emircancaglar.com ilhamı: sade wayfinding enstrümanı) ---- */
+.hud{position:fixed;left:0;right:0;bottom:26px;z-index:90;display:flex;justify-content:space-between;
+  padding:0 40px;pointer-events:none;font-family:var(--mono);font-size:11px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--mut);opacity:0;transition:opacity .8s var(--ease);
+  text-shadow:0 0 4px rgba(6,7,11,.92),0 1px 3px rgba(6,7,11,1)}
+.hud.on{opacity:1}
+.hud.dim{opacity:0}
+.hud .hud-l{display:flex;align-items:center;gap:10px}
+.hud .hud-dot{width:5px;height:5px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px var(--accent)}
+@media(max-width:760px){.hud{display:none}}
+@media(prefers-reduced-motion:reduce){.hud{transition:none}}
+
 
 /* ---- layout ---- */
 .content{position:relative;z-index:5}
@@ -121,9 +134,9 @@ section{position:relative;min-height:100vh;display:flex;flex-direction:column;ju
 /* ---- big statement ---- */
 .statement{max-width:1100px}
 .statement h2{font-family:var(--disp);font-weight:500;font-size:clamp(30px,5.2vw,76px);line-height:1.04;letter-spacing:-.02em}
-.statement h2 .g{background:var(--irid);-webkit-background-clip:text;background-clip:text;color:transparent}
+.statement h2 .g{color:var(--accent);background:none;-webkit-background-clip:initial;background-clip:initial}
 [data-split] .word{display:inline-block;will-change:transform,opacity}
-[data-split] .g .word{background:var(--irid);-webkit-background-clip:text;background-clip:text;color:transparent;padding-bottom:.04em}
+[data-split] .g .word{color:var(--accent);background:none;-webkit-background-clip:initial;background-clip:initial;padding-bottom:.04em}
 .statement p{margin-top:36px;max-width:52ch;color:var(--mut);font-size:clamp(15px,1.8vw,19px)}
 .statement .approach{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:52px;max-width:820px}
 .statement .ap .ak{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--teal);display:block;margin-bottom:14px}
@@ -139,7 +152,7 @@ section{position:relative;min-height:100vh;display:flex;flex-direction:column;ju
 .work:hover{padding-left:24px}
 .work .wn{font-family:var(--mono);font-size:14px;color:var(--mut)}
 .work .wmain h3{font-family:var(--disp);font-weight:700;font-size:clamp(26px,3.6vw,46px);letter-spacing:-.02em;line-height:1;transition:color .4s}
-.work:hover .wmain h3{background:var(--irid);-webkit-background-clip:text;background-clip:text;color:transparent}
+.work:hover .wmain h3{color:var(--accent);background:none;-webkit-background-clip:initial;background-clip:initial}
 .work .wmain p{color:var(--mut);margin-top:14px;max-width:60ch;font-size:15.5px}
 .work .wmeta{font-family:var(--mono);font-size:12px;color:var(--mut-2);text-align:right;letter-spacing:.04em;line-height:1.8}
 .work .wmeta b{color:var(--teal);font-weight:400}
@@ -147,13 +160,13 @@ section{position:relative;min-height:100vh;display:flex;flex-direction:column;ju
 /* iş 02 — canlı site listesi (kanıt) */
 .sitelist{list-style:none;margin:24px 0 2px;padding:0;border-top:1px solid var(--line)}
 .sitelist .site a{display:grid;grid-template-columns:1fr auto;column-gap:20px;row-gap:4px;align-items:baseline;padding:15px 0;border-bottom:1px solid var(--line);text-decoration:none;color:inherit;position:relative;transition:padding-left .45s var(--ease)}
-.sitelist .site a::before{content:'';position:absolute;left:0;top:0;bottom:0;width:0;background:var(--lime);transition:width .45s var(--ease)}
+.sitelist .site a::before{content:'';position:absolute;left:0;top:0;bottom:0;width:0;background:var(--accent);transition:width .45s var(--ease)}
 .sitelist .site a:hover{padding-left:15px}
 .sitelist .site a:hover::before{width:2px}
 .sitelist .s-name{grid-area:1/1;font-family:var(--disp);font-weight:700;font-size:clamp(17px,2vw,21px);letter-spacing:-.01em;color:var(--text);transition:color .35s}
-.sitelist .site a:hover .s-name{background:var(--irid);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sitelist .site a:hover .s-name{color:var(--accent);background:none;-webkit-background-clip:initial;background-clip:initial}
 .sitelist .s-host{grid-area:1/2;align-self:center;font-family:var(--mono);font-size:12px;color:var(--mut);white-space:nowrap;transition:color .35s}
-.sitelist .site a:hover .s-host{color:var(--lime)}
+.sitelist .site a:hover .s-host{color:var(--accent)}
 .sitelist .s-desc{grid-area:2/1;font-size:13.5px;color:var(--mut);max-width:52ch}
 .sitelist .s-tag{grid-area:2/2;justify-self:end;font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--mut);white-space:nowrap}
 .sitelist .site.solo .s-tag{color:var(--lime)}
@@ -162,9 +175,9 @@ section{position:relative;min-height:100vh;display:flex;flex-direction:column;ju
 /* iş 03 — otomasyon kategori çipleri */
 .chips{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 2px;padding:0}
 .chips .chip{font-family:var(--mono);font-size:11px;letter-spacing:.03em;color:var(--mut);padding:7px 13px;border:1px solid var(--line);border-radius:100px;white-space:nowrap;transition:border-color .35s var(--ease),color .35s}
-.work:hover .chips .chip{border-color:rgba(196,240,66,.28);color:var(--text)}
+.work:hover .chips .chip{border-color:rgba(95,230,208,.28);color:var(--text)}
 .repolink{display:inline-flex;align-items:center;margin-top:18px;font-family:var(--mono);font-size:12px;letter-spacing:.05em;color:var(--mut);border-bottom:1px solid var(--line);padding-bottom:3px;transition:color .35s var(--ease),border-color .35s}
-.repolink:hover{color:var(--lime);border-color:var(--lime)}
+.repolink:hover{color:var(--accent);border-color:var(--accent)}
 
 /* ---- okunabilirlik: parlak 3D nesne metnin arkasına geçtiğinde ---- */
 .hero-name,.hero-sub p,.hero-sub .tag,.eyebrow,
@@ -173,13 +186,13 @@ section{position:relative;min-height:100vh;display:flex;flex-direction:column;ju
 .contact h2,.contact .csub,.clink{
   text-shadow:0 0 1px rgba(6,7,11,.95),0 0 4px rgba(6,7,11,.92),0 0 9px rgba(6,7,11,.88),0 1px 3px rgba(6,7,11,1),0 2px 22px rgba(6,7,11,.8)}
 
-/* iridesan (gradient) metin — vurgu kelimeleri + hover'daki başlık/site adı.
-   text-shadow + background-clip:text Chrome'da çakışıp metni koyu basıyordu →
-   o metinlerde text-shadow'u kapat, kontrast için drop-shadow kullan (clip'le doğru çalışır). */
+/* vurgu (accent) metin — vurgu kelimeleri + hover'daki başlık/site adı.
+   Artık background-clip:text yok (düz accent renk) → text-shadow çakışması ortadan kalktı;
+   gövde metniyle birebir aynı çok-katmanlı halo → krom nesne arkasından geçerken okunabilirlik tutarlı. */
 .statement h2 .g,[data-split] .g .word,.contact h2 .g,
 .work:hover .wmain h3,.sitelist .site a:hover .s-name{
-  text-shadow:none;
-  filter:drop-shadow(0 1px 4px rgba(6,7,11,.96)) drop-shadow(0 0 2px rgba(6,7,11,.85));
+  text-shadow:0 0 1px rgba(6,7,11,.95),0 0 4px rgba(6,7,11,.92),0 0 9px rgba(6,7,11,.9),0 1px 3px rgba(6,7,11,1),0 2px 22px rgba(6,7,11,.8);
+  filter:none;
 }
 
 /* ---- marquee ---- */
@@ -193,11 +206,11 @@ section{position:relative;min-height:100vh;display:flex;flex-direction:column;ju
 .contact{align-items:center;text-align:center;min-height:100vh}
 .contact .eyebrow{justify-content:center}
 .contact h2{font-family:var(--disp);font-weight:800;font-size:clamp(54px,13vw,200px);line-height:.86;letter-spacing:-.04em;text-transform:uppercase}
-.contact h2 .g{background:var(--irid);-webkit-background-clip:text;background-clip:text;color:transparent}
+.contact h2 .g{color:var(--accent);background:none;-webkit-background-clip:initial;background-clip:initial}
 .contact .csub{margin-top:24px;color:var(--mut);font-size:clamp(15px,1.9vw,20px)}
 .contact .clinks{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:48px}
 .clink{display:inline-flex;align-items:center;gap:10px;padding:15px 26px;border:1px solid var(--line);border-radius:100px;font-family:var(--mono);font-size:14px;letter-spacing:.03em;transition:transform .4s var(--ease),border-color .4s,background .4s}
-.clink:hover{transform:translateY(-4px);border-color:var(--lime);background:rgba(196,240,66,.06)}
+.clink:hover{transform:translateY(-4px);border-color:var(--accent);background:rgba(95,230,208,.06)}
 .clink svg{width:17px;height:17px}
 
 footer{padding:40px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-family:var(--mono);font-size:12px;color:var(--mut-2);border-top:1px solid var(--line);position:relative;z-index:5}
@@ -223,9 +236,38 @@ footer{padding:40px;display:flex;justify-content:space-between;flex-wrap:wrap;ga
 
 @media(max-width:760px){
   nav,section,footer,.loader{padding-left:22px;padding-right:22px}
-  .work{grid-template-columns:1fr;gap:10px}
-  .work .wmeta{text-align:left}
-  .hero-sub{flex-direction:column;align-items:flex-start}
+  section{padding-top:96px;padding-bottom:96px}
+  .hero{min-height:100svh}
+  .contact{min-height:100svh}
+  .hero-sub{flex-direction:column;align-items:flex-start;margin-top:30px;padding-top:20px;gap:16px}
+  .eyebrow{margin-bottom:24px}
+  .works-head{margin-bottom:48px}
+  .work{grid-template-columns:1fr;gap:10px;padding:34px 0}
+  .work .wn{font-size:12px;letter-spacing:.16em;color:var(--mut-2)}
+  .work .wmeta{text-align:left;margin-top:14px;line-height:1.9}
+  .wghost{font-size:clamp(70px,22vw,120px);right:-2px;opacity:.7}
+  /* en büyük başlıklar krom nesneyle en çok çakışan metinler → halo'yu güçlendir (düz beyaz başlıklar; .g override etmez) */
+  .hero-name,.contact h2,.statement h2,.works-head h2{
+    text-shadow:0 0 2px rgba(6,7,11,.97),0 0 8px rgba(6,7,11,.95),0 1px 4px rgba(6,7,11,1),0 2px 26px rgba(6,7,11,.9)}
+  /* 3D katmanını mobilde hafif söndür → metin kontrastı artar (pointer-events yok, etkileşim etkilenmez) */
+  .bg-photo{opacity:.85}
+  .vignette{box-shadow:inset 0 0 160px 40px rgba(6,7,11,.72)}
+  #scene{opacity:.9}
+}
+
+/* ====== MOBİL EK DÜZENLEMELER (bağımsız eşikler) ====== */
+@media(max-width:560px){
+  .contact .clinks{gap:10px;margin-top:36px}
+  .clink{flex:1 1 calc(50% - 5px);justify-content:center;padding:15px 14px;font-size:13px}
+}
+@media(max-width:480px){
+  .sitelist .site a{grid-template-columns:1fr;row-gap:6px;padding:16px 0}
+  .sitelist .s-name,.sitelist .s-host,.sitelist .s-desc,.sitelist .s-tag{grid-area:auto;justify-self:start}
+  .sitelist .s-host{align-self:auto;color:var(--mut)}
+  .sitelist .s-tag{margin-top:2px}
+}
+@media(max-width:360px){
+  .clink{flex:1 1 100%}
 }
 </style>
 </head>
@@ -238,6 +280,12 @@ footer{padding:40px;display:flex;justify-content:space-between;flex-wrap:wrap;ga
 <div class="vignette"></div>
 <div class="cursor" id="cursor"></div>
 <div class="prog" id="prog"></div>
+
+<!-- SCROLL HUD (emircancaglar.com ilhamı: sade wayfinding enstrümanı) -->
+<div class="hud" id="hud" aria-hidden="true">
+  <div class="hud-l"><i class="hud-dot"></i><span id="hudName">GİRİŞ</span></div>
+  <div class="hud-r"><span id="hudPct">0</span>%</div>
+</div>
 
 <!-- PRELOADER -->
 <div class="loader" id="loader">
@@ -268,7 +316,7 @@ footer{padding:40px;display:flex;justify-content:space-between;flex-wrap:wrap;ga
       <span class="line"><span class="in" data-text="TIRYAKİ"></span></span>
     </h1>
     <div class="hero-sub">
-      <p id="heroP">Web siteleri, yapay zekâ ve otomasyon yapıyorum. Bir işin mi var? Fikri alır, çalışan bir şeye çeviririm.</p>
+      <p id="heroP">Web sitesi, yapay zekâ ve otomasyon işleri yapıyorum. Fikrinizi alır, çalışan bir ürüne dönüştürürüm.</p>
       <div class="tag">GELİŞTİRİCİ — İSTANBUL — '26</div>
     </div>
     <div class="scrollcue"><span>KAYDIR</span><span class="ln"></span></div>
@@ -277,19 +325,19 @@ footer{padding:40px;display:flex;justify-content:space-between;flex-wrap:wrap;ga
   <!-- STATEMENT -->
   <section class="statement">
     <div class="eyebrow">01 — Yaklaşım</div>
-    <h2 data-split>Ezberlemem, <span class="g">kurcalarım.</span></h2>
+    <h2 data-split>Az iş, <span class="g">tam odak.</span></h2>
     <div class="approach" data-reveal>
       <div class="ap">
         <span class="ak">Ne yapıyorum</span>
-        <p>Web siteleri, yapay zekâ ve otomasyon. Tasarımdan koda, baştan sona ben yaparım.</p>
+        <p>Web sitesi, yapay zekâ ve otomasyon. Tasarımdan koda kadar işin tamamını ben yürütürüm.</p>
       </div>
       <div class="ap">
         <span class="ak">Kimin için</span>
-        <p>Sitesi ya da aracı olsun isteyenler. Aklındaki fikri hayata geçirmek isteyenler.</p>
+        <p>Bir sitesi ya da aracı olması gereken, fikrini hayata geçirmek isteyen kişiler ve ekipler.</p>
       </div>
       <div class="ap">
         <span class="ak">Nasıl çalışıyorum</span>
-        <p>Az iş alırım, hepsine düzgün vakit ayırırım. İletişim açık, sonunda çalışan bir şey teslim ederim.</p>
+        <p>Aynı anda az iş alır, her birine gereken zamanı ayırırım. Süreç boyunca iletişim açık kalır, sonunda çalışan bir ürün teslim ederim.</p>
       </div>
     </div>
   </section>
@@ -307,7 +355,7 @@ footer{padding:40px;display:flex;justify-content:space-between;flex-wrap:wrap;ga
       <div class="wn">01</div>
       <div class="wmain">
         <h3 data-scramble>Borsa Botu</h3>
-        <p>İstatistiksel olarak doğrulanmış otonom bir BIST botu. Telegram'dan çalışır, kararını kendi verir, riskini kendi yönetir — aylarca backtest, disiplinli ölçüm.</p>
+        <p>İstatistiksel olarak doğrulanmış, otonom bir BIST botu. Telegram üzerinden çalışır, kararını kendi verir, riskini kendi yönetir. Aylarca süren backtest ve disiplinli ölçümün sonucu.</p>
         <div class="stat" data-stat>
           <div class="srow"><span class="sk">Deflated Sharpe</span><span class="sv" data-count="98.7" data-suffix="%">%0,0</span></div>
           <div class="sbar"><i data-fill="98.7"></i></div>
@@ -322,12 +370,12 @@ footer{padding:40px;display:flex;justify-content:space-between;flex-wrap:wrap;ga
       <div class="wn">02</div>
       <div class="wmain">
         <h3 data-scramble>Web Siteleri</h3>
-        <p>Sıfırdan tasarlayıp kodladığım canlı siteler. Bazıları ekip işi — tasarımın çoğu bende; bazıları baştan sona bana ait. Hepsi yayında, tıkla gör.</p>
+        <p>Sıfırdan tasarlayıp kodladığım canlı siteler. Bir kısmı ekip işi; tasarımın çoğu bana ait. Bir kısmı baştan sona benim. Hepsi yayında.</p>
         <ul class="sitelist">
           <li class="site"><a href="https://kolayonay.com.tr" target="_blank" rel="noopener" data-cursor>
             <span class="s-name">KolayOnay</span>
             <span class="s-host">kolayonay.com.tr&nbsp;↗</span>
-            <span class="s-desc">KVKK uyumlu çerez &amp; onay yönetimi platformu</span>
+            <span class="s-desc">KVKK uyumlu çerez ve onay yönetimi platformu</span>
             <span class="s-tag">Ekip</span>
           </a></li>
           <li class="site"><a href="https://www.agencylambda.com/tr" target="_blank" rel="noopener" data-cursor>
@@ -345,7 +393,7 @@ footer{padding:40px;display:flex;justify-content:space-between;flex-wrap:wrap;ga
           <li class="site solo"><a href="https://maltepefencalistay.org" target="_blank" rel="noopener" data-cursor>
             <span class="s-name">MFL Fen Bilimleri Çalıştayı</span>
             <span class="s-host">maltepefencalistay.org&nbsp;↗</span>
-            <span class="s-desc">Lise bilim çalıştayı için tanıtım &amp; başvuru sitesi</span>
+            <span class="s-desc">Lise bilim çalıştayı için tanıtım ve başvuru sitesi</span>
             <span class="s-tag">Solo</span>
           </a></li>
           <li class="site solo"><a href="https://worldwidefires.vercel.app" target="_blank" rel="noopener" data-cursor>
@@ -371,7 +419,7 @@ footer{padding:40px;display:flex;justify-content:space-between;flex-wrap:wrap;ga
       <div class="wn">03</div>
       <div class="wmain">
         <h3 data-scramble>Otomasyonlar</h3>
-        <p>Google Gemini destekli, uçtan uca çalışan 50 n8n iş akışı — hepsini sıfırdan kurguladım. İlke: ücretli servise bağımlı olma (Gemini ücretsiz katman, Sheets, Telegram, açık API'ler). Form çevirisi, fatura ayrıştırma, soğuk e-posta, içerik üretimi gibi gerçek iş problemleri — içinde tam bir web-tasarım satış pipeline'ı da var.</p>
+        <p>Google Gemini destekli, uçtan uca çalışan 50 n8n iş akışı; hepsini sıfırdan kurguladım. İlke, ücretli servislere bağımlılığı en aza indirmek (Gemini ücretsiz katman, Sheets, Telegram, açık API'ler). Form çevirisi, fatura ayrıştırma, soğuk e-posta, içerik üretimi gibi gerçek iş problemleri; ayrıca eksiksiz bir web tasarım satış akışı.</p>
         <ul class="chips">
           <li class="chip">Satış · 15</li>
           <li class="chip">İş · 10</li>
@@ -392,8 +440,8 @@ footer{padding:40px;display:flex;justify-content:space-between;flex-wrap:wrap;ga
       <span class="accent" aria-hidden="true"></span>
       <div class="wn">04</div>
       <div class="wmain">
-        <h3 data-scramble>…ve sırada ne varsa</h3>
-        <p>Bir sonraki fikir hep yolda. Yapay zekâ, 3D, yeni şeyler — neyi merak edersem onu kurcalıyorum.</p>
+        <h3 data-scramble>Sürmekte olan işler</h3>
+        <p>Üzerinde çalıştığım yeni işler hep var. Yapay zekâ, 3D ve ilgilendiğim diğer alanlarda yeni projeler geliştiriyorum.</p>
       </div>
       <div class="wmeta">DEVAM EDİYOR<br><b>↗</b></div>
     </div>
@@ -411,7 +459,7 @@ footer{padding:40px;display:flex;justify-content:space-between;flex-wrap:wrap;ga
   <section class="contact" id="iletisim">
     <div class="eyebrow">02 — İletişim</div>
     <h2 data-split>Bir fikrin mi <span class="g">var?</span></h2>
-    <p class="csub" data-reveal>Bir işin mi var? Bir mesaj at — birlikte yapalım.</p>
+    <p class="csub" data-reveal>Bir mesaj at, birlikte hayata geçirelim.</p>
     <div class="clinks">
       <a class="clink" data-cursor href="https://wa.me/905362581157" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="currentColor"><path d="M.057 24l1.687-6.163a11.87 11.87 0 01-1.587-5.946C.157 5.335 5.495.001 12.05.001a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.607z"/></svg>
@@ -457,6 +505,8 @@ import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js'
 import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
 
 const reduce = matchMedia('(prefers-reduced-motion:reduce)').matches;
+// Mobil/dokunmatik tespiti — tüm WebGL + juice ölçeklemesi BU tek sabiti kullanır (CLAUDE.md: coarse OR max-width:760px)
+const isMobile = matchMedia('(max-width:760px)').matches || matchMedia('(pointer:coarse)').matches;
 document.getElementById('yr').textContent = new Date().getFullYear();
 
 // Merkez 3D nesne seçimi — URL: ?p=crystal | chrome | neural | gem  (varsayılan crystal)
@@ -505,15 +555,15 @@ function splitEl(el){
 
   // — tekil —
   reg($('nav .n-right a'), 'CONTACT ↘');
-  reg($('#heroP'), 'I build websites, AI and automation. Got a project? I take the idea and turn it into something that works.');
+  reg($('#heroP'), 'I work on websites, AI and automation. I take your idea and turn it into a working product.');
   reg($('.hero .tag'), "DEVELOPER — ISTANBUL — '26");
   reg($('.scrollcue span'), 'SCROLL');
   reg($('.statement .eyebrow'), '01 — Approach');
-  reg($('.statement h2'), `I don't memorize, <span class="g">I tinker.</span>`, 'split');
+  reg($('.statement h2'), `Few projects, <span class="g">full focus.</span>`, 'split');
   const apEN = [
-    ['What I do', 'Websites, AI and automation. From design to code, I build the whole thing.'],
-    ["Who it's for", 'People who want a website or a tool — who want to bring an idea to life.'],
-    ['How I work', 'I take on few projects and give each its time. Communication stays open, and I deliver something that actually works.'],
+    ['What I do', 'Websites, AI and automation. I handle the whole thing, from design to code.'],
+    ["Who it's for", 'People and teams who need a site or a tool, and want to bring an idea to life.'],
+    ['How I work', 'I take on few projects at once and give each the time it needs. Communication stays open throughout, and I deliver a product that works.'],
   ];
   document.querySelectorAll('.approach .ap').forEach((ap,i)=>{ if(apEN[i]){ reg(ap.querySelector('.ak'), apEN[i][0]); reg(ap.querySelector('p'), apEN[i][1]); } });
   reg($('.works-head h2'), 'Selected Work');
@@ -523,21 +573,21 @@ function splitEl(el){
   const works = document.querySelectorAll('.works .work');
   const W = (i)=>works[i];
   if(W(0)){ reg(W(0).querySelector('h3'), 'Stock Bot', 'scramble');
-    reg(W(0).querySelector('.wmain > p'), 'A statistically validated, autonomous bot for the Istanbul stock exchange (BIST). Runs from Telegram, makes its own calls, manages its own risk — months of backtesting and disciplined measurement.'); }
+    reg(W(0).querySelector('.wmain > p'), 'A statistically validated, autonomous bot for the Istanbul stock exchange (BIST). It runs over Telegram, makes its own decisions and manages its own risk — the result of months of backtesting and disciplined measurement.'); }
   if(W(1)){ reg(W(1).querySelector('h3'), 'Websites', 'scramble');
-    reg(W(1).querySelector('.wmain > p'), 'Live sites I designed and coded from scratch. Some are teamwork — most of the design is mine; others are entirely mine. All live, click to see.');
-    const sd = ['KVKK-compliant cookie & consent management platform','Web agency for healthcare and legal professionals','Corporate site for a law firm in Istanbul','Promo & registration site for a high-school science workshop','A live map of wildfires around the world','Independent software developer portfolio'];
+    reg(W(1).querySelector('.wmain > p'), 'Live sites I designed and coded from scratch. Some were teamwork, with most of the design mine; others are entirely my own. All are live.');
+    const sd = ['KVKK-compliant cookie and consent management platform','Web agency for healthcare and legal professionals','Corporate site for a law firm in Istanbul','Promotion and registration site for a high-school science workshop','A live map of wildfires around the world','Independent software developer portfolio'];
     const stg = ['Team','Team','Solo','Solo','Solo','Team'];
     W(1).querySelectorAll('.sitelist .site').forEach((s,i)=>{ reg(s.querySelector('.s-desc'), sd[i]); reg(s.querySelector('.s-tag'), stg[i]); });
     reg(W(1).querySelector('.wmeta'), 'DESIGN · CODE<br><b>6 LIVE SITES</b><br>LIVE', 'html'); }
   if(W(2)){ reg(W(2).querySelector('h3'), 'Automations', 'scramble');
-    reg(W(2).querySelector('.wmain > p'), 'Google Gemini-powered, end-to-end n8n workflows — I built all 50 from scratch. Principle: minimize paid-service dependency (Gemini free tier, Sheets, Telegram, open APIs). Real business problems — form translation, invoice parsing, cold email, content generation — plus a full web-design sales pipeline.');
+    reg(W(2).querySelector('.wmain > p'), 'Fifty Google Gemini-powered, end-to-end n8n workflows, all built from scratch. The principle is to minimize dependence on paid services (Gemini free tier, Sheets, Telegram, open APIs). Real business problems — form translation, invoice parsing, cold email, content generation — plus a complete web-design sales pipeline.');
     const ch = ['Sales · 15','Business · 10','Social · 9','Content · 6','AI · 4','Email · 4','DevOps · 1','Productivity · 1'];
     W(2).querySelectorAll('.chips .chip').forEach((c,i)=> reg(c, ch[i]));
     reg(W(2).querySelector('.repolink'), 'View on GitHub&nbsp;↗', 'html');
     reg(W(2).querySelector('.wmeta'), 'N8N · GEMINI<br><b>50 FLOWS</b><br>8 CATEGORIES', 'html'); }
-  if(W(3)){ reg(W(3).querySelector('h3'), "…and whatever's next", 'scramble');
-    reg(W(3).querySelector('.wmain > p'), 'The next idea is always on the way. AI, 3D, new things — whatever I get curious about, I tinker with it.');
+  if(W(3)){ reg(W(3).querySelector('h3'), 'Ongoing work', 'scramble');
+    reg(W(3).querySelector('.wmain > p'), 'There is always new work in progress. I keep building new projects in AI, 3D and other areas I work in.');
     reg(W(3).querySelector('.wmeta'), 'IN PROGRESS<br><b>↗</b>', 'html'); }
 
   // — marquee (kelime kelime, ✦ ayraçlarını koru) —
@@ -550,7 +600,7 @@ function splitEl(el){
   // — iletişim —
   reg($('.contact .eyebrow'), '02 — Contact');
   reg($('.contact h2'), `Got an <span class="g">idea?</span>`, 'split');
-  reg($('.csub'), "Got a project? Drop me a message — let's build it together.");
+  reg($('.csub'), "Drop me a message and let's build it together.");
   const clinks = document.querySelectorAll('.clinks .clink');
   if(clinks[1]) reg(clinks[1], 'EMAIL', 'nodeLast');
 
@@ -595,6 +645,7 @@ function splitEl(el){
     const b = e.target.closest('[data-l]'); if(!b || b.dataset.l===lang) return;
     lang = b.dataset.l;
     applyLang(lang, false);
+    try{ if(typeof updateHUD==='function') updateHUD(); }catch(_){}   // HUD bölüm adını anında dile çevir
     try{ localStorage.setItem('lang', lang); }catch(_){}
   });
 })();
@@ -604,7 +655,7 @@ document.querySelectorAll('[data-split]').forEach(splitEl);
 
 /* ====================== THREE.JS SAHNE ====================== */
 const canvas = document.getElementById('scene');
-let renderer, scene, camera, composer, crystal, particles, envTex;
+let renderer, scene, camera, composer, crystal, particles, envTex, bloom;
 let webglOK = true;
 const mouse = {x:0,y:0,tx:0,ty:0};
 const state = {prog:0, crystalX:0, crystalScale:1, disp:0.16, hue:0, velSpin:0, lastY:0, rawVel:0, jvel:0};
@@ -628,13 +679,14 @@ const ORBIT = [
   [1.00,  0.0,  0.0],   // iletişim — TAM ORTA (krom alt duruş)
 ];
 function sampleOrbit(p){
-  if(p <= ORBIT[0][0]) return {x:ORBIT[0][1], y:ORBIT[0][2]};
+  const XA = isMobile ? 0.55 : 1;   // mobilde yatay salınım daralt (kenardan taşma + metin çakışması azalır). p=0/p=1 → 0*XA=0, TAM ORTA korunur.
+  if(p <= ORBIT[0][0]) return {x:ORBIT[0][1]*XA, y:ORBIT[0][2]};
   const last = ORBIT[ORBIT.length-1];
-  if(p >= last[0]) return {x:last[1], y:last[2]};
+  if(p >= last[0]) return {x:last[1]*XA, y:last[2]};
   for(let i=0;i<ORBIT.length-1;i++){
     const a=ORBIT[i], b=ORBIT[i+1];
     if(p>=a[0] && p<=b[0]){ let s=(p-a[0])/(b[0]-a[0]); s=s*s*(3-2*s); // smoothstep — yumuşak akış
-      return {x:a[1]+(b[1]-a[1])*s, y:a[2]+(b[2]-a[2])*s}; }
+      return {x:(a[1]+(b[1]-a[1])*s)*XA, y:a[2]+(b[2]-a[2])*s}; }
   }
   return {x:0,y:0};
 }
@@ -642,9 +694,9 @@ function sampleOrbit(p){
 try {
   renderer = new THREE.WebGLRenderer({canvas, antialias:true, alpha:true, powerPreference:'high-performance'});
   renderer.setSize(innerWidth, innerHeight);
-  renderer.setPixelRatio(Math.min(devicePixelRatio,1.6));
+  renderer.setPixelRatio(Math.min(devicePixelRatio, isMobile ? 1.25 : 1.6));
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 0.86;
+  renderer.toneMappingExposure = isMobile ? 0.78 : 0.86;
   renderer.outputColorSpace = THREE.SRGBColorSpace;
 } catch(e){ webglOK=false; console.warn('WebGL yok:',e); }
 
@@ -756,8 +808,8 @@ function buildNeural(){
 function buildCenterpiece(kind){
   let mesh, uni=null;
   if(kind==='chrome'){
-    const geo = new THREE.IcosahedronGeometry(1.32, 48);
-    const mat = new THREE.MeshStandardMaterial({ color:0x9aa3b2, metalness:1.0, roughness:0.06, envMapIntensity:1.15 });
+    const geo = new THREE.IcosahedronGeometry(1.32, isMobile ? 24 : 48);
+    const mat = new THREE.MeshStandardMaterial({ color:0x9aa3b2, metalness:1.0, roughness: isMobile ? 0.14 : 0.06, envMapIntensity: isMobile ? 0.95 : 1.15 });
     uni = { uTime:{value:0}, uDisp:{value:0.13}, uFreq:{value:1.3} };   // soft-spiky: daha yüksek frekans + genlik
     applyDisplace(mat, uni);
     mesh = new THREE.Mesh(geo, mat);
@@ -811,7 +863,7 @@ function buildScene(){
   scene.add(crystal);
 
   // PARÇACIK BULUTU (atmosfer) — nöral ağda azaltılır
-  const N = PIECE==='neural' ? (reduce?300:600) : (reduce ? 700 : 1800);
+  const N = PIECE==='neural' ? (reduce?300:(isMobile?400:600)) : (reduce ? 700 : (isMobile ? 700 : 1800));
   const pos = new Float32Array(N*3); const rnd = new Float32Array(N);
   for(let i=0;i<N;i++){
     const r = 2.2 + Math.random()*4.0;
@@ -863,7 +915,9 @@ function buildScene(){
   // POST: bloom
   composer = new EffectComposer(renderer);
   composer.addPass(new RenderPass(scene, camera));
-  const bloom = new UnrealBloomPass(new THREE.Vector2(innerWidth,innerHeight), 0.34, 0.42, 0.92);
+  const bloomRes = isMobile ? new THREE.Vector2(innerWidth*0.5, innerHeight*0.5)
+                            : new THREE.Vector2(innerWidth, innerHeight);
+  bloom = new UnrealBloomPass(bloomRes, isMobile ? 0.24 : 0.34, isMobile ? 0.35 : 0.42, isMobile ? 0.95 : 0.92);
   composer.addPass(bloom);
   composer.addPass(new OutputPass());
 }
@@ -876,6 +930,7 @@ const _ndc = new THREE.Vector3(), _wm = new THREE.Vector3();
 function lerp(a,b,t){return a+(b-a)*t;}
 function render(){
   if(!webglOK) return;
+  if(document.hidden) return;   // arka plandayken çizme (pil + termal; scrub scroll-bağımlı olduğu için drift yok)
   const t = clock.getElapsedTime();
   mouse.x = lerp(mouse.x, mouse.tx, 0.06);
   mouse.y = lerp(mouse.y, mouse.ty, 0.06);
@@ -883,7 +938,7 @@ function render(){
   const _dy = scrollY - state.lastY; state.lastY = scrollY;
   state.rawVel = state.rawVel*0.72 + _dy*0.28;                 // hafif düzleme
   const _av = Math.abs(state.rawVel);
-  const DEAD = 26;                                             // ~1560 px/sn altı = efekt yok (rahat okuma hızı)
+  const DEAD = isMobile ? 1e9 : 26;                            // masaüstü ~1560 px/sn altı = efekt yok; mobilde juice kapalı (momentum scroll yanlış tetiklemesini önler)
   state.jvel = reduce ? 0 : (_av > DEAD ? Math.sign(state.rawVel)*(_av-DEAD) : 0);
   state.velSpin = state.velSpin*0.88 + state.jvel*0.0016;      // sönümlenen ekstra dönüş ("flywheel")
 
@@ -900,7 +955,8 @@ function render(){
     const _o = sampleOrbit(state.prog);
     crystal.position.x = lerp(crystal.position.x, _o.x + mouse.x*0.3, 0.06);
     crystal.position.y = lerp(crystal.position.y, _o.y + mouse.y*-0.3, 0.06);
-    const s = lerp(crystal.scale.x, state.crystalScale, 0.05);
+    const SCALE_MUL = isMobile ? 0.68 : 1;   // mobilde nesne metni daha az bastırsın (timeline yazar, render okur — sözleşme korunur)
+    const s = lerp(crystal.scale.x, state.crystalScale * SCALE_MUL, 0.05);
     crystal.scale.setScalar(s);
     if(crystal.material && crystal.material.iridescence > 0)
       crystal.material.iridescenceThicknessRange = [120, 360 + state.prog*420];
@@ -927,10 +983,15 @@ addEventListener('mousemove',(e)=>{
   mouse.tx = (e.clientX/innerWidth)*2-1;
   mouse.ty = -((e.clientY/innerHeight)*2-1);
 });
+let _rsz;
 addEventListener('resize',()=>{
-  if(!webglOK) return;
-  camera.aspect = innerWidth/innerHeight; camera.updateProjectionMatrix();
-  renderer.setSize(innerWidth,innerHeight); composer.setSize(innerWidth,innerHeight);
+  clearTimeout(_rsz);
+  _rsz = setTimeout(()=>{
+    if(!webglOK) return;
+    camera.aspect = innerWidth/innerHeight; camera.updateProjectionMatrix();
+    renderer.setSize(innerWidth,innerHeight); composer.setSize(innerWidth,innerHeight);   // UnrealBloomPass.setSize'ı da çağırır (tam-çöze döner)
+    if(isMobile && bloom) bloom.setSize(Math.round(innerWidth*0.5), Math.round(innerHeight*0.5));   // mobilde bloom'u yarı-çöze geri kıs (inşa anındaki değerle aynı)
+  }, isMobile ? 200 : 120);   // mobil adres-çubuğu resize fırtınasını tek çağrıya indir
 });
 
 /* ====================== LENIS + GSAP SCROLL ====================== */
@@ -944,12 +1005,33 @@ if(!reduce){
 }else{
   gsap.ticker.add(render);
 }
+// Sekme tekrar görünür olunca biriken zamanı yut → kare/animasyon sıçramasını önle
+document.addEventListener('visibilitychange', ()=>{ if(!document.hidden && webglOK){ const d=clock.getDelta(); clock.elapsedTime-=d; state.lastY=scrollY; } });   // gizli geçen süreyi elapsedTime'dan düş (faz sıçraması yok) + lastY senkronu (juice patlaması yok)
 
 const prog = document.getElementById('prog');
+
+// SCROLL HUD (emircancaglar.com ilhamı): aktif bölüm + ilerleme. i18n: anlık document.lang okur.
+const hud = document.getElementById('hud'), hudName = document.getElementById('hudName'), hudPct = document.getElementById('hudPct');
+const HUD_ZONES = [
+  {tr:'GİRİŞ',    en:'INTRO',    sel:'.hero'},
+  {tr:'YAKLAŞIM', en:'APPROACH', sel:'.statement'},
+  {tr:'İŞLER',    en:'WORK',     sel:'.works'},
+  {tr:'İLETİŞİM', en:'CONTACT',  sel:'.contact'},
+].map(z=>({tr:z.tr, en:z.en, el:document.querySelector(z.sel)})).filter(z=>z.el);
+const _footer = document.querySelector('footer');
+function updateHUD(){
+  if(!hud) return;
+  const mid = scrollY + innerHeight*0.5; let idx = 0;
+  for(let i=0;i<HUD_ZONES.length;i++){ if(HUD_ZONES[i].el.offsetTop <= mid) idx = i; }
+  hudName.textContent = (document.documentElement.lang==='en') ? HUD_ZONES[idx].en : HUD_ZONES[idx].tr;
+  hudPct.textContent = Math.round(state.prog*100);
+  if(_footer) hud.classList.toggle('dim', _footer.getBoundingClientRect().top < innerHeight - 30);  // footer'a gelince söner (köşe çakışması yok)
+}
 function setProg(){
   const max = document.documentElement.scrollHeight - innerHeight;
   state.prog = max>0 ? scrollY/max : 0;
   prog.style.width = (state.prog*100)+'%';
+  updateHUD();
 }
 addEventListener('scroll', setProg); setProg();
 
@@ -1006,6 +1088,7 @@ function startCounter(){
 function finishLoad(){
   loader.classList.add('done');
   setProg();
+  if(hud) hud.classList.add('on');   // scroll HUD'u görünür yap
   revealSetup();
   // hero intro
   const tl = gsap.timeline({delay:0.1});
