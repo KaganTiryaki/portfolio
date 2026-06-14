@@ -298,7 +298,7 @@ footer{padding:40px;display:flex;justify-content:space-between;flex-wrap:wrap;ga
   <section class="works" id="isler">
     <div class="works-head">
       <h2 data-reveal>Yaptıklarım</h2>
-      <div class="count" data-reveal>SEÇİLİ — 05</div>
+      <div class="count" data-reveal>SEÇİLİ — 04</div>
     </div>
 
     <div class="work" data-cursor>
@@ -348,6 +348,12 @@ footer{padding:40px;display:flex;justify-content:space-between;flex-wrap:wrap;ga
             <span class="s-desc">Lise bilim çalıştayı için tanıtım &amp; başvuru sitesi</span>
             <span class="s-tag">Solo</span>
           </a></li>
+          <li class="site solo"><a href="https://worldwidefires.vercel.app" target="_blank" rel="noopener" data-cursor>
+            <span class="s-name">Worldwide Fire Map</span>
+            <span class="s-host">worldwidefires.vercel.app&nbsp;↗</span>
+            <span class="s-desc">Dünya genelindeki orman yangınlarını canlı gösteren harita</span>
+            <span class="s-tag">Solo</span>
+          </a></li>
           <li class="site"><a href="https://bugratiryaki.com" target="_blank" rel="noopener" data-cursor>
             <span class="s-name">Buğra Tiryaki</span>
             <span class="s-host">bugratiryaki.com&nbsp;↗</span>
@@ -356,7 +362,7 @@ footer{padding:40px;display:flex;justify-content:space-between;flex-wrap:wrap;ga
           </a></li>
         </ul>
       </div>
-      <div class="wmeta">TASARIM · KOD<br><b>5 CANLI SİTE</b><br>YAYINDA</div>
+      <div class="wmeta">TASARIM · KOD<br><b>6 CANLI SİTE</b><br>YAYINDA</div>
     </div>
 
     <div class="work" data-cursor>
@@ -385,18 +391,6 @@ footer{padding:40px;display:flex;justify-content:space-between;flex-wrap:wrap;ga
       <span class="wghost" aria-hidden="true">04</span>
       <span class="accent" aria-hidden="true"></span>
       <div class="wn">04</div>
-      <div class="wmain">
-        <h3 data-scramble>Orman Yangın Haritası</h3>
-        <p>Orman yangınlarını interaktif haritada gösteren tam yığın bir uygulama. React + Leaflet arayüz, arkada Express API veriyi çekip sunar.</p>
-        <a class="repolink" href="https://github.com/KaganTiryaki/orman-yangin-haritasi" target="_blank" rel="noopener" data-cursor>GitHub'da gör&nbsp;↗</a>
-      </div>
-      <div class="wmeta">REACT · LEAFLET<br><b>EXPRESS API</b><br>2026</div>
-    </div>
-
-    <div class="work" data-cursor>
-      <span class="wghost" aria-hidden="true">05</span>
-      <span class="accent" aria-hidden="true"></span>
-      <div class="wn">05</div>
       <div class="wmain">
         <h3 data-scramble>…ve sırada ne varsa</h3>
         <p>Bir sonraki fikir hep yolda. Yapay zekâ, 3D, yeni şeyler — neyi merak edersem onu kurcalıyorum.</p>
@@ -532,22 +526,19 @@ function splitEl(el){
     reg(W(0).querySelector('.wmain > p'), 'A statistically validated, autonomous bot for the Istanbul stock exchange (BIST). Runs from Telegram, makes its own calls, manages its own risk — months of backtesting and disciplined measurement.'); }
   if(W(1)){ reg(W(1).querySelector('h3'), 'Websites', 'scramble');
     reg(W(1).querySelector('.wmain > p'), 'Live sites I designed and coded from scratch. Some are teamwork — most of the design is mine; others are entirely mine. All live, click to see.');
-    const sd = ['KVKK-compliant cookie & consent management platform','Web agency for healthcare and legal professionals','Corporate site for a law firm in Istanbul','Promo & registration site for a high-school science workshop','Independent software developer portfolio'];
-    const stg = ['Team','Team','Solo','Solo','Team'];
+    const sd = ['KVKK-compliant cookie & consent management platform','Web agency for healthcare and legal professionals','Corporate site for a law firm in Istanbul','Promo & registration site for a high-school science workshop','A live map of wildfires around the world','Independent software developer portfolio'];
+    const stg = ['Team','Team','Solo','Solo','Solo','Team'];
     W(1).querySelectorAll('.sitelist .site').forEach((s,i)=>{ reg(s.querySelector('.s-desc'), sd[i]); reg(s.querySelector('.s-tag'), stg[i]); });
-    reg(W(1).querySelector('.wmeta'), 'DESIGN · CODE<br><b>5 LIVE SITES</b><br>LIVE', 'html'); }
+    reg(W(1).querySelector('.wmeta'), 'DESIGN · CODE<br><b>6 LIVE SITES</b><br>LIVE', 'html'); }
   if(W(2)){ reg(W(2).querySelector('h3'), 'Automations', 'scramble');
     reg(W(2).querySelector('.wmain > p'), 'Google Gemini-powered, end-to-end n8n workflows — I built all 50 from scratch. Principle: minimize paid-service dependency (Gemini free tier, Sheets, Telegram, open APIs). Real business problems — form translation, invoice parsing, cold email, content generation — plus a full web-design sales pipeline.');
     const ch = ['Sales · 15','Business · 10','Social · 9','Content · 6','AI · 4','Email · 4','DevOps · 1','Productivity · 1'];
     W(2).querySelectorAll('.chips .chip').forEach((c,i)=> reg(c, ch[i]));
     reg(W(2).querySelector('.repolink'), 'View on GitHub&nbsp;↗', 'html');
     reg(W(2).querySelector('.wmeta'), 'N8N · GEMINI<br><b>50 FLOWS</b><br>8 CATEGORIES', 'html'); }
-  if(W(3)){ reg(W(3).querySelector('h3'), 'Forest Fire Map', 'scramble');
-    reg(W(3).querySelector('.wmain > p'), 'A full-stack app that maps forest fires on an interactive map. A React + Leaflet front end, with an Express API serving the data behind it.');
-    reg(W(3).querySelector('.repolink'), 'View on GitHub&nbsp;↗', 'html'); }
-  if(W(4)){ reg(W(4).querySelector('h3'), "…and whatever's next", 'scramble');
-    reg(W(4).querySelector('.wmain > p'), 'The next idea is always on the way. AI, 3D, new things — whatever I get curious about, I tinker with it.');
-    reg(W(4).querySelector('.wmeta'), 'IN PROGRESS<br><b>↗</b>', 'html'); }
+  if(W(3)){ reg(W(3).querySelector('h3'), "…and whatever's next", 'scramble');
+    reg(W(3).querySelector('.wmain > p'), 'The next idea is always on the way. AI, 3D, new things — whatever I get curious about, I tinker with it.');
+    reg(W(3).querySelector('.wmeta'), 'IN PROGRESS<br><b>↗</b>', 'html'); }
 
   // — marquee (kelime kelime, ✦ ayraçlarını koru) —
   const mq = {'YAPAY ZEKÂ':'AI','TASARIM':'DESIGN','OTOMASYON':'AUTOMATION','VERİ':'DATA'};
