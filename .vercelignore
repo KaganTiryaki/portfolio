@@ -1,0 +1,9 @@
+# Canlı siteye yüklenmez — iç notlar yerelde kalır
+proje-notlari.md
+tasarim-plani.md
+CLAUDE.md
+BRIEF.md
+.gitignore
+node_modules/
+.DS_Store
+Thumbs.db

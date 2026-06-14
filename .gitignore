@@ -1,0 +1,14 @@
+# İç proje notları — herkese açık repo/siteye dahil edilmez (yerelde kalır)
+proje-notlari.md
+tasarim-plani.md
+CLAUDE.md
+BRIEF.md
+
+# bağımlılıklar / araç çıktıları
+node_modules/
+.vercel/
+
+# OS / editör
+.DS_Store
+Thumbs.db
+*.log
